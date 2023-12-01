@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="/image/logo.png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ZPCR</title>
+
+
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  <!-- Custom styles for this template -->
+  <link href="/css/dashboard.css" rel="stylesheet">
+  <link href="/css/carousel.css" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/">XJTLU ZPCR</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="/login/logout" th:if="${session.user ne null}">Log out</a>
+        <a class="nav-link" href="/login" th:if="${session.user eq null}">Log in</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container-fluid">
+  <div>
+    <main role="main">
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text>
+              <image xlink:href="/image/home_1.jpg" height="100%" width="100%"></image>
+            </svg>
+
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <h1>ZPCR</h1>
+                <p>Why should your next luxury car be your own?</p>
+                <p><a class="btn btn-lg btn-primary" href="/login">Login</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text>
+              <image xlink:href="/image/home_2.jpg" height="100%" width="100%"></image>
+            </svg>
+
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>System development</h1>
+                <p>ZPCR is an extremely advanced car rental platform independently developed by XJTLU-CPT202-Group36.</p>
+                <p><a class="btn btn-lg btn-primary" href="/register">register</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text>
+              <image xlink:href="/image/home_3.jpg" height="100%" width="100%"></image>
+            </svg>
+
+            <div class="container">
+              <div class="carousel-caption text-right">
+                <h1>For car rentals, please choose ZPCR.</h1>
+                <p>Not choosing ZPCR for car rentals will only lead to an unsuccessful life.</p>
+                <p><a class="btn btn-lg btn-primary" href="/cars">Dashboard</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-target="#myCarousel" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-target="#myCarousel" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </button>
+      </div>
+
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+              <image xlink:href="/image/home_4.jpg" height="100%" width="100%"></image>
+            </svg>
+
+            <h2>Ferrari</h2>
+            <p>Ferrari, an iconic Italian luxury sports car manufacturer, is renowned for its high-performance, elegant designs and racing heritage, offering unparalleled driving experiences since 1947.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+              <image xlink:href="/image/home_5.jpg" height="100%" width="100%"></image>
+            </svg>
+
+            <h2>Rolls-Royce</h2>
+            <p>Rolls-Royce, a British luxury automaker, epitomizes unparalleled craftsmanship and elegance, creating exquisite vehicles with a rich heritage of excellence and innovation since 1904.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+              <image xlink:href="/image/home_6.jpg" height="100%" width="100%"></image>
+            </svg>
+
+            <h2>Lamborghini</h2>
+            <p>Lamborghini, an Italian luxury sports car brand, is renowned for its cutting-edge designs, thrilling performance, and bold, distinctive aesthetics, embodying the essence of speed and innovation since 1963.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading"> Fast and Convenient Way to Rent Cars.<span class="text-muted">It’ll blow your mind.</span></h2>
+            <p class="lead">ZPCR revolutionizes the rental process, providing a seamless, user-friendly experience for customers. Combining advanced technology with a vast selection of vehicles, our platform makes renting a car hassle-free and efficient, catering to the diverse needs of modern drivers. Discover the future of car rental with our reliable and accessible service, designed to make your journey more enjoyable.</p>
+          </div>
+          <div class="col-md-5">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+              <image xlink:href="/image/home_2.jpg" height="100%" width="100%"></image>
+            </svg>
+
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Ferrari <span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">Ferrari, an iconic Italian brand, was founded in 1939 by Enzo Ferrari. Known for its luxury sports cars and exceptional racing heritage, Ferrari has a reputation for unparalleled performance, design, and craftsmanship. With a prancing horse as its emblem, the company has become synonymous with speed, style, and prestige. Headquartered in Maranello, Italy, Ferrari continues to push boundaries in automotive engineering, creating stunning vehicles that attract enthusiasts and collectors worldwide. In addition to its automotive pursuits, Ferrari also participates in Formula 1, solidifying its status as a leader in the motorsports industry.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+              <image xlink:href="/image/home_4.jpg" height="100%" width="100%"></image>
+            </svg>
+
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">Rolls-Royce<span class="text-muted"> Outstanding quality, exquisite craftsmanship, and unique design.</span></h2>
+            <p class="lead">Rolls-Royce, a symbol of luxury and excellence, was founded in 1904 by Charles Rolls and Henry Royce. This British automobile manufacturer is renowned for crafting some of the world's finest and most prestigious vehicles. Combining meticulous attention to detail, unparalleled craftsmanship, and cutting-edge technology, Rolls-Royce vehicles offer a truly unique and opulent driving experience.</p>
+          </div>
+          <div class="col-md-5">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+              <image xlink:href="/image/home_5.jpg" height="100%" width="100%"></image>
+            </svg>
+
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+      </div><!-- /.container -->
+
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2022-2023 ZPCR, Group36 &middot; <a href="#">Privacy</a> &middot; <a href="#">Ver.1</a></p>
+      </footer>
+    </main>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/assets/dist/js/vender/jquery.slim.min.js"><\/script>')</script>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/feather.min.js"></script>
+<script src="/js/component.js"></script>
+</body>
+</html>
+

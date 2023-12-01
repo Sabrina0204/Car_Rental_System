@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/image/logo.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>Users</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/orders.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div th:replace="component::#headerMenu"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="component::#sidebarMenu"></div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Orders</h1>
+            </div>
+            <div>
+                <div class="box w">
+                    <div class="entry" th:each="order:${data.records}">
+                            <div class="left">
+<!--                                <img class="pic" src="@{'/image/car-img'+${order.car.id+'_abs.jpg'}}">-->
+                                <img class="pic" src="/image/car_img/2_abs.jpg">
+                                <div class="row1">
+                                    <span class="startTime" th:text="${'Order Start Time ' + order.orderStartTime}"></span>
+                                    <span class="colOutlet">Vehicle Collection Outlet: Suzhou-XJTLU</span>
+                                    <div class="trah_location">
+                                        <svg  xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash-fill trash" viewBox="0 0 16 16" x="40" y="100">
+                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                        </svg>
+                                    </div>
+
+                                </div>
+                                <div class="row2">
+                                    <span class="compTime" th:text="${'Order Finish Time ' + order.orderFinishTime}"></span>
+                                    <span class="retOutlet">Vehicle Return Outlet: Suzhou-XJTLU</span>
+                                </div>
+                                <div class="row31">
+
+                                    <span class="state" th:text="${order.status}"></span>
+                                    <span class="row3">
+                                        <a th:href="${'/car_details?carId=' + order.carId}">
+                                            <div class="brand" th:text="${order.description}">BMW-M8</div>
+                                        </a>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="right">
+                                <span class="price" th:text="${order.price} +'RMB'"></span>
+                                <span class="btnState" th:if = "${order.status eq 'In Progress'}">
+                                </span>
+                                <span th:if = "${order.status eq 'Appointed'}">
+                                    <div class="d-grid gap-2 d-md-block">
+                                      <a th:href="${'/pricing?id=' + order.id}" class="btn btn-primary btnself Grey" type="button">Pay</a>
+                                      <a class="btn btn-primary btnself Grey" type="button">Cancel</a>
+                                    </div>
+                                </span>
+<!--                                <span class="btnState but shade" ><a>Comment</a ></span>-->
+                                <span th:if="${order.status eq 'Completed'}">
+                                <a th:href="@{/orders/complete/{id}(id=${order.id})}" class="btn btn-primary btnself Grey" type="button">Complete</a>
+                                </span>
+<!--                                <span class="btnState but shade">Comment</span>-->
+                                <!-- 模态框 -->
+                               <div class="login-box" th:id="'comment-modal-' + ${order.id}">
+                               <div class="title">
+                                 Comment
+                                <span class="exit">×</span>
+                                </div>
+                                    <form th:action="@{/orders/comment}" method="post">
+                                        <input name="userId" th:value="${order.userId}" hidden>
+                                        <input name="carId" th:value="${order.carId}" hidden>
+                                        <textarea class="input-box size" name="content" id="comment_text" placeholder="comment..."></textarea>
+                                        <button type="submit" class="login-but" value="submit"></button>
+                                    </form>
+                                </div>
+                                <!-- 评论按钮 -->
+<!--                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal">评论</button>-->
+                                </span>
+                                <span th:if = "${order.status eq 'Reserved'}">
+                                    <span class="btnState but shade">Cancel</span>
+                                </span>
+                                <span th:if = "${order.status} eq 'Time-out'">
+                                </span>
+                                <span th:if = "${order.status} eq 'Returned'">
+                                    <span class="btnState but shade">Finish</span>
+                                </span>
+<!--                                <span>-->
+<!--                                    <a th:href="@{/orders/complete/{id}(id=${order.id})}"><button class="btnState but shade">Complete</button></a>-->
+<!--                                </span>-->
+
+                            </div>
+                        </div>
+                        </div>
+                </div>
+
+<!--                </div>-->
+
+
+        </main>
+    </div>
+</div>
+
+</body>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/assets/dist/js/vender/jquery.slim.min.js"><\/script>')</script>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/feather.min.js"></script>
+<script src="/js/component.js"></script>
+<script src="/js/orders.js"></script>
+
+</html>

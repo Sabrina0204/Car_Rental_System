@@ -1,0 +1,407 @@
+li {
+    list-style: none;
+}
+
+/*谁要用就调用这个版心*/
+.w{
+    width: 12rem;
+    margin: auto;
+}
+
+
+
+.header{
+    height: .53rem;
+    background-color: #B0B0B0;
+    /*此地方会重叠w里面的margin*/
+    margin: .2rem auto .1rem auto;
+}
+
+
+
+.nav ul {
+    margin: 0;
+}
+
+/*让导航栏中list在一行显示，不要竖着显示*/
+.nav ul li{
+    float: left;
+}
+
+.nav ul li div {
+    height: .3rem;
+    width: .7rem;
+    background-color: #FADADF;
+    margin: .05rem;
+    border-radius: .1rem;
+    /*border: solid;*/
+    border: #AEAEAE;
+    border-color: black;
+}
+
+.nav ul li div a{
+    position: absolute;
+    padding: 0 .05rem;
+    font-size: .18rem;
+    color: black;
+    text-decoration: none;
+    line-height: .28rem;
+}
+
+.nava{
+    padding: 0 .15rem;
+    transform: translateX(8.2rem);
+}
+
+.title{
+    height: .6rem;
+    margin: 0 auto;
+}
+
+.char{
+    position: absolute;
+    font-weight: bold;
+    font-size: .3rem;
+    font-family: "Microsoft Yahei", Arial;
+    margin-left: .3rem;
+    margin-top: .15rem;
+}
+
+.batch input{
+    position: absolute;
+    font-size: .13rem;
+    padding: .06rem;
+    border-radius: .1rem;
+    border: solid;
+    border-color: black;
+    margin: .2rem 0 0 0;
+}
+.select select {
+    position: absolute;
+    transform: translateX(9.5rem);
+    font-size: .13rem;
+    padding: .06rem;
+    border-radius: .1rem;
+    /*border: solid;*/
+    border-color: black;
+    margin: .2rem 0 0 0;
+}
+
+.select select option {
+    font-size: .13rem;
+}
+
+.box {
+    background-color: #f8f9fa;
+    height: 100rem;
+    width: 70rem;
+    margin: .3rem auto;
+    padding: .2rem;
+    font-weight: 600;
+}
+
+.box .entry {
+    background-color: #d1d4e4;
+    width: 59.5rem;
+    height: 21.5rem;
+    margin: 4.3rem 5.3rem;
+    flex-direction: column;
+    z-index: 50;
+    border-radius: 0.9rem;
+}
+
+.box .entry span {
+    font-size: 1.1rem;
+    text-align: center;
+    transform: translate(8rem, 3rem);
+}
+.box .entry div {
+    font-size: 1.1rem;
+}
+.box .entry img {
+    float: left;
+    border-radius: 0.1rem;
+    width: 15.2rem;
+    height: 12.5rem;
+    transform: translate(0.9rem, 1.5rem);
+    border-radius: 1rem;
+}
+.box .entry .row1 {
+    margin-left: 2.3rem;
+    width: 57rem;
+    transform: translate(-117px, -11px);
+}
+
+
+.box .entry .row1 span {
+    /* margin: 0 0.2rem 0 0; */
+    margin: 0 0.2rem 0 0;
+    /* transform: translate(5rem, 5rem); */
+    width: 21.4rem;
+    display: inline-block;
+}
+
+.box .entry .row1 .trah_location{
+    display: inline-block;
+    transform: translate(49rem, -0.5rem);
+
+}
+
+.box .entry .row2 {
+    margin: 0.08rem -35px 4rem 1rem;
+    margin-left: 2.3rem;
+    width: 58rem;
+    transform: translate(-126px, 21px);
+}
+
+.box .entry .row2 span {
+    margin: 0 -0.9rem 0 0;
+    display: inline-block;
+    width: 23.2rem;
+}
+
+/*.box .entry .state {*/
+/*    float: left;*/
+/*    width: .8rem;*/
+/*    text-align: center;*/
+/*    margin-top: .1rem;*/
+/*    font-size: .13rem;*/
+/*    font-weight: bold;*/
+/*    font-style: italic;*/
+/*}*/
+
+.box .entry .state {
+    /* float: left; */
+    width: 11.5rem;
+    height: 0.3rem;
+    text-align: center;
+    margin-top: 4.8rem;
+    margin-left: -30.7rem;
+    font-size: 2.23rem;
+    font-weight: bold;
+    font-style: italic;
+    transform: translate(7rem, 2rem);
+}
+
+.box .entry .row31 {
+    margin: -0.95rem 1px 0.05rem 1.7rem;
+    width: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box .entry .row3 {
+    margin: 0.05rem 0 0.05rem 1.7rem;
+    width: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(-17.5rem, -7.8rem);
+}
+
+.box .entry .row3 a {
+    font-size: 2rem;
+    margin: 0 auto;
+    width: 24.2rem;
+    transform: translate(22rem, 8rem);
+    color: #0b2e13;
+}
+
+.box .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translate(8rem, -3.5rem);
+}
+
+.box .entry .right .price {
+    font-size: 1.8rem;
+    margin-bottom: 0.05rem;
+    width: 7.3rem;
+    font-weight: bold;
+    transform: translate(39rem, 1rem);
+}
+
+.btnself {
+    transform: translate(107px, -17px);
+    /*background-color: darkgrey;*/
+    border-color: darkgray;
+    width: 6.2rem;
+    height: 2.6rem;
+    line-height: 2.1rem;
+    background-color: #AEAEAE;
+    padding: .05rem;
+    border-radius: .05rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.btnself:hover {
+    background-color: #5E5E5E;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+
+/* 立即登录按钮和模态框水平垂直居中 */
+.but, .login-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* 遮罩层 */
+.shade {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, .3); */
+    /* 这里一定要把遮罩层移到重叠元素的上层，就可以造成父窗口无法操作的效果 */
+    z-index: 100;
+}
+/* 立即登录按钮 */
+.but {
+    cursor: pointer;
+    display: block;
+    width: 200px;
+    height: 60px;
+    border-radius: 30px;
+    box-shadow: 0 10px 10px rgba(10, 20, 20, .2);
+    background-color: #fa8282;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    line-height: 60px;
+}
+.but:hover {
+    transition: background-color 0.5s;
+    background-color: #f36886;
+}
+/* 模态框 */
+.login-box {
+    position: fixed;
+    display: none;
+    width: 450px;
+    height: 350px;
+    border: 1px solid rgb(216, 216, 216);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(10, 20, 20, .2), -5px -5px 10px rgba(10, 20, 20, .2);
+    background-color: #fff;
+    line-height: initial;
+    /* 和遮罩层同理，模态框一定要在最上层 */
+    z-index: 100;
+}
+.login-box .title {
+    cursor: move;
+    user-select: none;  /* 禁止用户选中文字 */
+    position: relative;
+    width: 10.2rem;
+    height: 70px;
+    color: #3f3f3f;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 70px;
+}
+.login-box .title .exit {
+    position: absolute;
+    top: -52px;
+    right: 10px;
+    font-size: 30px;
+    /*transform: translate(-0.5rem, 0rem);*/
+}
+.login-box .title .exit:hover {
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(10, 20, 20, .5);
+}
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+.login-box form .input-box {
+    width: 60%;
+    height: 35px;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    border: 1px solid #3f3f3f;
+    border-radius: 8px;
+    color: #3f3f3f;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.login-box form .size{
+    height: 200px;
+    width: 300px;
+}
+.login-box form .input-box:focus {
+    outline: none;
+}
+.login-box form .login-but {
+    width: 120px;
+    height: 42px;
+    border: none;
+    background-color: #54bbe4;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    transform: translate(0,-1.5rem);
+    text-align: revert;
+    margin: 1rem;
+}
+.login-box form .login-but:hover {
+    background-color: #54bbe4;
+}
+
+.box .right .Finish{
+    /* cursor: pointer; */
+    /* display: block; */
+    width: 200px;
+    height: 60px;
+    border-radius: 30px;
+    /* box-shadow: 0 10px 10px rgba(10, 20, 20, .2); */
+    /* background-color: #fa8282; */
+    color: #fff;
+    font-size: 25px;
+    /* text-align: center; */
+    line-height: 60px;
+}
+
+.box .entry .right .btnState {
+    background-color: #AEAEAE;
+    padding: .05rem;
+    border-radius: .05rem;
+    transition: all 0.2s ease-in-out;
+    width: 8rem;
+    height: 3rem;
+    line-height: 2.8rem;
+    transform: translate(4rem,0rem);
+}
+
+.box .entry .right .btnState:hover {
+    background-color: #5E5E5E;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.box .entry .right .d-grid .Grey{
+    /*border-radius: 3rem;*/
+}
+
+/*调按钮点击颜色*/
+.box .entry .right .d-grid .Grey:active{
+    background-color: #dedada;
+}
+
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+.modal {
+    z-index: 1050 !important;
+}

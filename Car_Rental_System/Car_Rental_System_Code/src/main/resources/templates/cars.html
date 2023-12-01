@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/image/logo.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Cars</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="/css/album.css" rel="stylesheet">
+    <link href="/css/dashboard.css" rel="stylesheet">
+
+</head>
+<body>
+<div th:replace="component::#headerMenu"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="component::#sidebarMenu"></div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
+            <main role="main">
+
+                <section class="jumbotron text-center">
+                    <div class="container">
+                        <h1>ZPCR</h1>
+                        <p class="lead text-muted">Welcome to Zhi Pu Car Rental, where your next luxury car doesn't have to be your own.</p>
+                        <p>
+                            <input type="text" class="form-control" id="search-key" placeholder="search input" th:value="${param.search}">
+                            <button class="btn btn-primary my-2" onclick="search()">Search</button>
+                            <a href="/cars" class="btn btn-secondary my-2">Clear</a>
+                        </p>
+                    </div>
+                </section>
+
+                <div class="album py-5 bg-light">
+                    <div class="container">
+                        <div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4" th:each="car:${data.records}">
+                                <div class="card mb-4 shadow-sm">
+                                    <a th:href="${'/car_details?carId=' + car.id}">
+                                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                            <title th:text="${car.brand + ' ' + car.type}"></title>
+                                            <rect width="100%" height="100%" fill="#55595c"/>
+                                            <image th:xlink:href="@{'/image/car_img/' + ${car.id + '_abs.jpg'}}" height="100%" width="100%"></image>
+                                            <text x="50%" y="50%" fill="#eceeef" dy=".3em" th:text="${car.brand + ' ' + car.type}">默认车辆</text>
+                                        </svg>
+                                    </a>
+
+                                    <div class="card-body">
+                                        <p class="card-text" th:text="${car.brand + ' ' + car.type}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary">Favourite</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary">Add Cart</button>
+                                            </div>
+                                            <small class="text-muted">9 mins</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" th:if="${data.hasPrevious()}"><a class="page-link" th:href="'selectCar?pageNumber='+${data.current-1}+'&pageSize='+${data.size}">Previous</a></li>
+                        <script type="text/javascript">
+                            var total = [[${data.total}]]
+                            var size = [[${data.size}]]
+                            var current = [[${data.current}]]
+                            var loop = parseInt(total / size)
+                            if(total % size !== 0) loop += 1
+                            for(i = 1; i <= loop; ++i){
+                                if(i === current){
+                                    document.write("<li class=\"page-item active\"><a class=\"page-link\" href=\"selectCar?pageNumber=" + i + "&pageSize=" + size + "\">" + i + "</a></li>")
+                                } else {
+                                    document.write("<li class=\"page-item\"><a class=\"page-link\" href=\"selectCar?pageNumber=" + i + "&pageSize=" + size + "\">" + i + "</a></li>")
+                                }
+                            }
+                        </script>
+                        <li class="page-item" th:if="${data.hasNext()}"><a class="page-link" th:href="'selectCar?pageNumber='+${data.current+1}+'&pageSize='+${data.size}">Next</a></li>
+                    </ul>
+                </nav>
+
+            </main>
+
+            <footer class="text-muted">
+                <div class="container">
+                    <p class="float-right">
+                        <a href="#">Back to top</a>
+                    </p>
+                    <p>This car rental website is for entertainment and educational purposes only. Please do not conduct any payment transactions on this platform.</p>
+                    <p>Produced by XJTLU, SAT , ICS , CPT202 Group 36.</p>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+</div>
+
+</body>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/assets/dist/js/vender/jquery.slim.min.js"><\/script>')</script>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/feather.min.js"></script>
+<script src="/js/component.js"></script>
+<script type="text/javascript">
+    function search(){
+        window.location.href = baseUrl() + "/selectCar?search=" + document.getElementById("search-key").value;
+    }
+    function baseUrl(){
+        var pathName=window.document.location.pathname;
+        var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+        return projectName;
+    }
+</script>
+
+</html>

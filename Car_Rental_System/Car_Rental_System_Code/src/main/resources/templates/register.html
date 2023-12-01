@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/image/logo.png"/>
+    <title>ZPCR-Register</title>
+
+    <!-- Bootstrap core CSS -->
+<link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/popup.css" rel="stylesheet">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="/css/popup.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/image/logo.png" alt="" width="72" height="72">
+    <h2>Register the Account</h2>
+    <p class="lead">Please enter your information to register an account.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 order-md-1">
+      <h4 class="mb-3">Enter Your Information</h4>
+      <form class="needs-validation" novalidate th:action="@{/register/register}" method="POST">
+
+      <div class="mb-3">
+          <label for="username">Username(Phone Number)</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
+            <div class="invalid-feedback" style="width: 100%;">
+              Your username is required which is your phone number.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+          <div class="invalid-feedback">
+            Please enter your password.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password2">Confirm Password</label>
+          <input type="password" class="form-control" id="password2" placeholder="Confirm Password" name="confirmedPassword" required>
+          <div class="invalid-feedback">
+            Please enter your password again.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address">Address <span class="text-muted">(Optional)</span></label>
+          <input type="text" class="form-control" id="address" placeholder="Apartment or suite" name="address">
+          <div class="invalid-feedback">
+            Please enter your address.
+          </div>
+        </div>
+
+        <!-- 弹窗 -->
+        <div class="alert alert-warning" role="alert" th:if="${error ne null}" th:text="${error}"></div>
+
+        <button class="btn btn-secondary my-2" type="submit">Register</button>
+        <a class="btn btn-secondary my-2" href="/login">Back to Login</a>
+      </form>
+    </div>
+  </div>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2023 CPT202 Group36</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/assets/dist/js/vender/jquery.slim.min.js"><\/script>')</script>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

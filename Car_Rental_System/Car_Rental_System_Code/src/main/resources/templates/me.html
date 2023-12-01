@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/image/logo.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Me</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="/assets/dist/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/bootstrap-datepicker.zh-CN.min.js"></script>
+    <link href="/css/bootstrap-datepicker3.css" rel="stylesheet">
+
+</head>
+<body>
+<div th:replace="component::#headerMenu"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="component::#sidebarMenu"></div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">My information</h1>
+                <div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Edit
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel">User operation</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="myForm" th:action="@{/me/edit}" method="post">
+                                        <div class="form-group row" hidden>
+                                            <label for="id" class="col-sm-2 col-form-label" >id</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="id" class="form-control" name="id" th:value="${user.id}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" hidden>
+                                            <label for="inputUsername" class="col-sm-2 col-form-label" >Username</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputUsername" class="form-control" name="username" th:value="${user.username}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" id="inputPassword" class="form-control" name="password" th:value="${user.password}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputAge" class="col-sm-2 col-form-label" >Age</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputAge" class="form-control" name="age" th:value="${user.age}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputGender" class="col-sm-2 col-form-label" >Gender</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputGender" class="form-control" name="gender" th:value="${user.gender}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputAddress" class="col-sm-2 col-form-label" >Address</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputAddress" class="form-control" name="address" th:value="${user.address}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputDrivingLicense" class="col-sm-2 col-form-label" >Driving license</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputDrivingLicense" class="form-control" name="drivingLicense" th:value="${user.drivingLicense}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPhoneNumber" class="col-sm-2 col-form-label" >Phone number</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputPhoneNumber" class="form-control" name="phoneNumber" th:value="${user.phoneNumber}">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group row">
+                    <label for="_id" class="col-sm-2 col-form-label" >id</label>
+                    <div class="col-sm-10">
+                        <h4 type="text" id="_id" th:text="${user.id}"></h4>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="_inputUsername" class="col-sm-2 col-form-label" >Username</label>
+                    <div class="col-sm-10">
+                        <h4 type="text" id="_inputUsername" th:text="${user.username}"></h4>
+                    </div>
+                </div>
+                <div class="form-group row" hidden>
+                    <label for="_inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <h4 type="password" id="_inputPassword" th:text="${user.password}"></h4>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="_inputAge" class="col-sm-2 col-form-label" >Age</label>
+                    <div class="col-sm-10">
+                        <h4 type="text" id="_inputAge" th:text="${user.age}"></h4>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="_inputGender" class="col-sm-2 col-form-label" >Gender</label>
+                    <div class="col-sm-10">
+                        <h4 type="text" id="_inputGender" th:text="${user.gender}"></h4>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="_inputAddress" class="col-sm-2 col-form-label" >Address</label>
+                    <div class="col-sm-10">
+                        <h4 type="text" id="_inputAddress" th:text="${user.address}"></h4>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="_inputDrivingLicense" class="col-sm-2 col-form-label" >Driving license</label>
+                    <div class="col-sm-10">
+                        <h4 type="text" id="_inputDrivingLicense" th:text="${user.drivingLicense}"></h4>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="_inputPhoneNumber" class="col-sm-2 col-form-label" >Phone number</label>
+                    <div class="col-sm-10">
+                        <h4 type="text" id="_inputPhoneNumber" th:text="${user.phoneNumber}"></h4>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    $("#datepicker").datepicker({
+        language: 'zh-CN', //语言
+        autoclose: true, //选择后自动关闭
+        clearBtn: true,//清除按钮
+        format: "yyyy-mm-dd"//日期格式
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/assets/dist/js/vender/jquery.slim.min.js"><\/script>')</script>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/feather.min.js"></script>
+<script src="/js/component.js"></script>
+
+</body>
+</html>

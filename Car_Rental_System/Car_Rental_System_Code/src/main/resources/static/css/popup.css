@@ -1,0 +1,17 @@
+/* 隐藏弹窗 */
+#popup {
+    display: none;
+}
+
+/* 显示弹窗 */
+#popup:target {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/image/logo.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Orders</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+
+</head>
+<body>
+<div th:replace="component::#headerMenu"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="component::#sidebarMenu"></div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Orders</h1>
+                <div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="addOrder()">
+                        Add order
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel">Add order</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="myForm" th:action="@{/orders_admin/addOrder}" method="post">
+                                        <div class="form-group row" hidden>
+                                            <label for="id" class="col-sm-2 col-form-label" >id</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="id" class="form-control" name="id">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputUserId" class="col-sm-2 col-form-label" >user id</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputUserId" class="form-control" name="userId">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputCarId" class="col-sm-2 col-form-label" >car id</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputCarId" class="form-control" name="carId">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputStatus" class="col-sm-2 col-form-label" >status</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputStatus" class="form-control" name="status">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputDescription" class="col-sm-2 col-form-label" >description</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputDescription" class="form-control" name="description">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPaymentMethod" class="col-sm-2 col-form-label" >payment method</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputPaymentMethod" class="form-control" name="paymentMethod">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPaymentId" class="col-sm-2 col-form-label" >payment id</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputPaymentId" class="form-control" name="paymentId">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPrice" class="col-sm-2 col-form-label" >price</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputPrice" class="form-control" name="price">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputRemark" class="col-sm-2 col-form-label" >remark</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputRemark" class="form-control" name="remark">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputExtraFee" class="col-sm-2 col-form-label" >extra fee</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputExtraFee" class="form-control" name="extraFee">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputArrearagePaymentId" class="col-sm-2 col-form-label" >arrearage payment id</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputArrearagePaymentId" class="form-control" name="arrearagePaymentId">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputRefundedFee" class="col-sm-2 col-form-label" >refunded fee</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputRefundedFee" class="form-control" name="refundedFee">
+                                            </div>
+                                        </div>
+<!--                                        <div class="form-group row">-->
+<!--                                            <label for="inputOrderStartTime" class="col-sm-2 col-form-label" >start time</label>-->
+<!--                                            <div class="col-sm-10">-->
+<!--                                                <input type="text" id="inputOrderStartTime" class="form-control" name="orderStartTime">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group row">-->
+<!--                                            <label for="inputOrderFinishTime" class="col-sm-2 col-form-label" >finish time</label>-->
+<!--                                            <div class="col-sm-10">-->
+<!--                                                <input type="text" id="inputOrderFinishTime" class="form-control" name="orderFinishTime">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>User ID</th>
+                        <th>Car ID</th>
+                        <th>Status</th>
+                        <th>Description</th>
+                        <th>AppointStartTime</th>
+                        <th>AppointReturnTime</th>
+                        <th>RealAppointStartTime</th>
+                        <th>RealAppointReturnTime</th>
+                        <th>OrderStartTime</th>
+                        <th>OrderFinishTime</th>
+                        <th>PaymentMethod</th>
+                        <th>PaymentId</th>
+                        <th>Price</th>
+                        <th>Remark</th>
+                        <th>ExtraFee</th>
+                        <th>ArrearagePaymentId</th>
+                        <th>RefundedFee</th>
+                        <th>Operation</th>
+                    </tr>
+                    <tr th:each="order:${data.records}">
+                        <td th:text="${order.id}"></td>
+                        <td th:text="${order.userId}"></td>
+                        <td th:text="${order.carId}"></td>
+                        <td th:text="${order.status}"></td>
+                        <td th:text="${order.description}"></td>
+                        <td th:text="${order.appointStartTime}"></td>
+                        <td th:text="${order.appointReturnTime}"></td>
+                        <td th:text="${order.realAppointStartTime}"></td>
+                        <td th:text="${order.realAppointReturnTime}"></td>
+                        <td th:text="${order.orderStartTime}"></td>
+                        <td th:text="${order.orderFinishTime}"></td>
+                        <td th:text="${order.paymentMethod}"></td>
+                        <td th:text="${order.paymentId}"></td>
+                        <td th:text="${order.price}"></td>
+                        <td th:text="${order.remark}"></td>
+                        <td th:text="${order.extraFee}"></td>
+                        <td th:text="${order.arrearagePaymentId}"></td>
+                        <td th:text="${order.refundedFee}"></td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="model" data-target="#exampleModal"
+                                    th:onclick="deleteOrder([[${order.id}]])">Delete</button>
+                            <!-- [[${order.appointStartTime}]],
+                                    [[${order.appointReturnTime}]],
+                                    [[${order.realAppointStartTime}]],
+                                    [[${order.realAppointReturnTime}]],
+                                    [[${order.orderStartTime}]],
+                                    [[${order.orderFinishTime}]], -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                                    th:onclick="editOrder(
+                                    [[${order.id}]],
+                                    [[${order.userId}]],
+                                    [[${order.carId}]],
+                                    [[${order.status}]],
+                                    [[${order.description}]],
+                                    [[${order.paymentMethod}]],
+                                    [[${order.paymentId}]],
+                                    [[${order.price}]],
+                                    [[${order.remark}]],
+                                    [[${order.extraFee}]],
+                                    [[${order.arrearagePaymentId}]],
+                                    [[${order.refundedFee}]])">Edit</button>
+                            <a class="btn btn-primary" th:href="${'/orders_admin/pickup?id=' + order.id}">PickUp</a>
+                            <a class="btn btn-primary" th:href="${'/orders_admin/return?id=' + order.id}">Return</a>
+                        </td>
+                    <tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" th:if="${data.hasPrevious()}"><a class="page-link" th:href="'selectOrder?pageNumber='+${data.current-1}+'&pageSize='+${data.size}">Previous</a></li>
+                        <script type="text/javascript">
+                            var total = [[${data.total}]]
+                            var size = [[${data.size}]]
+                            var current = [[${data.current}]]
+                            var loop = parseInt(total / size)
+                            if(total % size !== 0) loop += 1
+                            for(i = 1; i <= loop; ++i){
+                                if(i === current){
+                                    document.write("<li class=\"page-item active\"><a class=\"page-link\" href=\"selectOrder?pageNumber=" + i + "&pageSize=" + size + "\">" + i + "</a></li>")
+                                } else {
+                                    document.write("<li class=\"page-item\"><a class=\"page-link\" href=\"selectOrder?pageNumber=" + i + "&pageSize=" + size + "\">" + i + "</a></li>")
+                                }
+                            }
+                        </script>
+                        <li class="page-item" th:if="${data.hasNext()}"><a class="page-link" th:href="'selectOrder?pageNumber='+${data.current+1}+'&pageSize='+${data.size}">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </main>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/assets/dist/js/vender/jquery.slim.min.js"><\/script>')</script>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/feather.min.js"></script>
+<script src="/js/component.js"></script>
+<script type="text/javascript">
+    function deleteOrder(obj){
+        if(window.confirm("确认删除吗？")){
+            window.location.href = baseUrl() + "/delete?id=" +  obj;
+        }
+    }
+    // document.getElementById("inputOrderStartTime").value = orderStartTime
+    // document.getElementById("inputOrderFinishTime").value = orderFinishTime
+    function editOrder(id, userId, carId, status, description, paymentMethod, paymentId, price, remark, extraFee, arrearagePaymentId, refundedFee){
+        document.getElementById("id").value = id
+        document.getElementById("inputUserId").value = userId
+        document.getElementById("inputCarId").value = carId
+        document.getElementById("inputStatus").value = status
+        document.getElementById("inputDescription").value = description
+        document.getElementById("inputPaymentMethod").value = paymentMethod
+        document.getElementById("inputPaymentId").value = paymentId
+        document.getElementById("inputPrice").value = price
+        document.getElementById("inputRemark").value = remark
+        document.getElementById("inputExtraFee").value = extraFee
+        document.getElementById("inputArrearagePaymentId").value = arrearagePaymentId
+        document.getElementById("inputRefundedFee").value = refundedFee
+        document.getElementById("myForm").action = baseUrl() + "/editOrder"
+    }
+    // document.getElementById("inputOrderStartTime").value = ""
+    // document.getElementById("inputOrderFinishTime").value = ""
+    function addOrder(){
+        document.getElementById("id").value = ""
+        document.getElementById("inputUserId").value = ""
+        document.getElementById("inputCarId").value = ""
+        document.getElementById("inputStatus").value = ""
+        document.getElementById("inputDescription").value = ""
+        document.getElementById("inputPaymentMethod").value = ""
+        document.getElementById("inputPaymentId").value = ""
+        document.getElementById("inputPrice").value = ""
+        document.getElementById("inputRemark").value = ""
+        document.getElementById("inputExtraFee").value = ""
+        document.getElementById("inputArrearagePaymentId").value = ""
+        document.getElementById("inputRefundedFee").value = ""
+        document.getElementById("myForm").action = baseUrl() + "/addOrder"
+    }
+    function baseUrl(){
+        var pathName=window.document.location.pathname;
+        var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+        return projectName;
+    }
+</script>
+</body>
+</html>

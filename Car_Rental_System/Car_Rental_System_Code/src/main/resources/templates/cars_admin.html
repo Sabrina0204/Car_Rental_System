@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/image/logo.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Cars</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+
+</head>
+<body>
+<div th:replace="component::#headerMenu"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="component::#sidebarMenu"></div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Cars</h1>
+                <div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="addCar()">
+                        Add car
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel">Add car</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="myForm" th:action="@{/cars_admin/addCar}" method="post" enctype="multipart/form-data">
+                                        <div class="form-group row" hidden>
+                                            <label for="id" class="col-sm-2 col-form-label" >id</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="id" class="form-control" name="id">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputBrand" class="col-sm-2 col-form-label" >brand</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputBrand" class="form-control" name="brand">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputType" class="col-sm-2 col-form-label">type</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputType" class="form-control" name="type">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputNumberOfSeats" class="col-sm-2 col-form-label" >number of seats</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputNumberOfSeats" class="form-control" name="numberOfSeats">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputNumberOfDoors" class="col-sm-2 col-form-label" >number of doors</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputNumberOfDoors" class="form-control" name="numberOfDoors">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputLuggageCapacity" class="col-sm-2 col-form-label" >luggage capacity</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputLuggageCapacity" class="form-control" name="luggageCapacity">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputFuelType" class="col-sm-2 col-form-label" >fuel type</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputFuelType" class="form-control" name="fuelType">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputTransmissionType" class="col-sm-2 col-form-label" >transmission type</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputTransmissionType" class="form-control" name="transmissionType">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputLicensePlateNumber" class="col-sm-2 col-form-label" >license plate number</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputLicensePlateNumber" class="form-control" name="licensePlateNumber">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputDailyRent" class="col-sm-2 col-form-label" >daily rent</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="inputDailyRent" class="form-control" name="dailyRent">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputImageClassification" class="col-sm-2 col-form-label">image classification</label>
+                                            <div class="col-sm-10">
+                                                <select id="inputImageClassification" class="form-control" name="imageClassification">
+                                                    <option>---Select Please---</option>
+                                                    <option>abs</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputImage" class="col-sm-2 col-form-label" >pic</label>
+                                            <div class="col-sm-10">
+                                                <input type="file" id="inputImage" class="form-control" name="pic">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>Brand</th>
+                        <th>Type</th>
+                        <th>Seats</th>
+                        <th>Doors</th>
+                        <th>Luggage</th>
+                        <th>Fuel</th>
+                        <th>Transmission</th>
+                        <th>License Number</th>
+                        <th>Daily Rent</th>
+                        <th>Operation</th>
+                    </tr>
+                    <tr th:each="car:${data.records}">
+                        <td th:text="${car.id}"></td>
+                        <td th:text="${car.brand}"></td>
+                        <td th:text="${car.type}"></td>
+                        <td th:text="${car.numberOfSeats}"></td>
+                        <td th:text="${car.numberOfDoors}"></td>
+                        <td th:text="${car.luggageCapacity}"></td>
+                        <td th:text="${car.fuelType}"></td>
+                        <td th:text="${car.transmissionType}"></td>
+                        <td th:text="${car.licensePlateNumber}"></td>
+                        <td th:text="${car.dailyRent}"></td>
+                        <td>
+                            <a th:href="'javascript:deleteCar('+${car.id}+')'" >删除</a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                                    th:onclick="editCar(
+                                    [[${car.id}]],
+                                    [[${car.brand}]],
+                                    [[${car.type}]],
+                                    [[${car.numberOfSeats}]],
+                                    [[${car.numberOfDoors}]],
+                                    [[${car.luggageCapacity}]],
+                                    [[${car.fuelType}]],
+                                    [[${car.transmissionType}]],
+                                    [[${car.licensePlateNumber}]],
+                                    [[${car.dailyRent}]])">Edit</button>
+                        </td>
+                    <tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" th:if="${data.hasPrevious()}"><a class="page-link" th:href="'selectCar?pageNumber='+${data.current-1}+'&pageSize='+${data.size}">Previous</a></li>
+                        <script type="text/javascript">
+                            var total = [[${data.total}]]
+                            var size = [[${data.size}]]
+                            var current = [[${data.current}]]
+                            var loop = parseInt(total / size)
+                            if(total % size !== 0) loop += 1
+                            for(i = 1; i <= loop; ++i){
+                                if(i === current){
+                                    document.write("<li class=\"page-item active\"><a class=\"page-link\" href=\"selectCar?pageNumber=" + i + "&pageSize=" + size + "\">" + i + "</a></li>")
+                                } else {
+                                    document.write("<li class=\"page-item\"><a class=\"page-link\" href=\"selectCar?pageNumber=" + i + "&pageSize=" + size + "\">" + i + "</a></li>")
+                                }
+                            }
+                        </script>
+                        <li class="page-item" th:if="${data.hasNext()}"><a class="page-link" th:href="'selectCar?pageNumber='+${data.current+1}+'&pageSize='+${data.size}">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </main>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/assets/dist/js/vender/jquery.slim.min.js"><\/script>')</script>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/feather.min.js"></script>
+<script src="/js/component.js"></script>
+<script type="text/javascript">
+    function deleteCar(obj){
+        if(window.confirm("确认删除吗？")){
+            window.location.href = baseUrl() + "/delete?id=" +  obj;
+        }
+    }
+    function editCar(id, brand, type, numberOfSeats, numberOfDoors, luggageCapacity, fuelType, transmissionType, licensePlateNumber, dailyRent){
+        document.getElementById("id").value = id
+        document.getElementById("inputBrand").value = brand
+        document.getElementById("inputType").value = type
+        document.getElementById("inputNumberOfSeats").value = numberOfSeats
+        document.getElementById("inputNumberOfDoors").value = numberOfDoors
+        document.getElementById("inputLuggageCapacity").value = luggageCapacity
+        document.getElementById("inputFuelType").value = fuelType
+        document.getElementById("inputTransmissionType").value = transmissionType
+        document.getElementById("inputLicensePlateNumber").value = licensePlateNumber
+        document.getElementById("inputDailyRent").value = dailyRent
+        document.getElementById("myForm").action = baseUrl() + "/editCar"
+    }
+    function addCar(){
+        document.getElementById("id").value = ""
+        document.getElementById("inputBrand").value = ""
+        document.getElementById("inputType").value = ""
+        document.getElementById("inputNumberOfSeats").value = ""
+        document.getElementById("inputNumberOfDoors").value = ""
+        document.getElementById("inputLuggageCapacity").value = ""
+        document.getElementById("inputFuelType").value = ""
+        document.getElementById("inputTransmissionType").value = ""
+        document.getElementById("inputLicensePlateNumber").value = ""
+        document.getElementById("inputDailyRent").value = ""
+        document.getElementById("myForm").action = baseUrl() + "/addCar"
+    }
+    function baseUrl(){
+        var pathName=window.document.location.pathname;
+        var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+        return projectName;
+    }
+</script>
+</body>
+</html>
